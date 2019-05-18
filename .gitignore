@@ -1,0 +1,29 @@
+# Created by .ignore support plugin (hsz.mobi)
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases #
+######################
+*.log
+
+#IDEA
+.idea
+
+/node_modules
+*.png
+atlassian-ide-plugin.xml
+*.iml
+
+test/report/*
+output
+
+.java-version
+
+package-lock.json
