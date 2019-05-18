@@ -22,7 +22,8 @@ exports.config = {
 
     helpers: {
         REST: {
-            timeout: 20000
+            timeout: 20000,
+            endpoint: "http://localhost:8080/",
         }
     },
     include: {
@@ -45,89 +46,3 @@ exports.config = {
         }
     }
 };
-
-/**
- * Configuration section for docker run
- */
-if (process.env.profile === 'docker') {
-
-    exports.config.helpers.WebDriver.host = process.env.HOST;
-    exports.config.helpers.WebDriver.desiredCapabilities = {
-        browserName: 'chrome',
-        chromeOptions: {
-            args: [
-            ]
-        }
-    };
-
-    exports.config.helpers.WebDriver.browser = 'chrome';
-    exports.config.helpers.WebDriver.restart = true;
-    exports.config.tests = process.env.testsfilter;
-    exports.config.mocha = {
-        reporterOptions: {
-            "codeceptjs-cli-reporter": {
-                stdout: "-",
-                options: {
-                    reportDir: './output',
-                    verbose: reporterVerbose,
-                    steps: reporterSteps,
-                    debug: reporterDebug,
-                    enableCharts: true
-                }
-            },
-            "mocha-junit-reporter": {
-                stdout: "-",
-                options: {
-                    reportDir: './output',
-                    mochaFile: "output/result.xml",
-                    rootSuiteTitle: 'ta-desktop',
-                    testsuitesTitle: 'Desktop Automated Tests',
-                    includePending: true,
-                    toConsole: false
-                }
-            }
-        }
-    };
-}
-
-/**
- * Configuration section for docker-local run
- */
-if (process.env.profile === 'docker-local') {
-
-    exports.config.helpers.WebDriver.host = process.env.HOST;
-    exports.config.helpers.WebDriver.desiredCapabilities = {
-        browserName: 'chrome',
-        chromeOptions: {
-            args: [
-            ]
-        }
-    };
-    exports.config.helpers.WebDriver.browser = 'chrome';
-    exports.config.helpers.WebDriver.restart = true;
-    exports.config.mocha = {
-        reporterOptions: {
-            "codeceptjs-cli-reporter": {
-                stdout: "-",
-                options: {
-                    reportDir: './output',
-                    verbose: reporterVerbose,
-                    steps: reporterSteps,
-                    debug: reporterDebug,
-                    enableCharts: true
-                }
-            },
-            "mocha-junit-reporter": {
-                stdout: "-",
-                options: {
-                    reportDir: './output',
-                    mochaFile: "output/result.xml",
-                    rootSuiteTitle: 'ta-desktop',
-                    testsuitesTitle: 'Desktop Automated Tests',
-                    includePending: true,
-                    toConsole: false
-                }
-            }
-        }
-    };
-}

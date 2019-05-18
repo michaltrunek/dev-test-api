@@ -7,6 +7,6 @@ BeforeSuite((I) => {
 });
 
 Scenario('Test 1', async (I) => {
-    const response = await I.sendGetRequest('http://localhost:8080/:input');
+    const response = await I.sendGetRequest(':input');
     console.log(response.data, response.status);
 }).tag('@api');
