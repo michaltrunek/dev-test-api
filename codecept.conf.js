@@ -17,7 +17,6 @@ if (process.env.NODE_ICU_DATA !== "node_modules/full-icu") process.env.NODE_ICU_
 
 exports.config = {
     tests: './tests/*Test.js',
-    timeout: 15000,
     output: './output',
 
     helpers: {
@@ -27,7 +26,8 @@ exports.config = {
         }
     },
     include: {
-        I: './steps_file.js'
+        I: './steps_file.js',
+        devowelizerHelper: './helpers/devowelizerHelper.js'
     },
     bootstrap: false,
     mocha: {
