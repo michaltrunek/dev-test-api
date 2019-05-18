@@ -27,3 +27,4 @@ output
 .java-version
 
 package-lock.json
+.gitignore
