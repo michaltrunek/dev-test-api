@@ -21,7 +21,7 @@ Scenario('Ensure that a GET request to a specific resource returns the correct d
     I.setRequestTimeout(30000);
     const response = await I.sendGetRequest(stringToCheck);
     devowelizerHelper.verifyStatus(response.status);
-    devowelizerHelper.verifyInputData(response.data);
+    devowelizerHelper.verifyOutputData(response.data);
 }).tag('@api');
 
 Scenario('Check that the correct content type is returned', async (I) => {

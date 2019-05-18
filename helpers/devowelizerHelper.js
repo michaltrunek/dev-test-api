@@ -10,7 +10,7 @@ module.exports = {
         I = actor();
     },
 
-    verifyInputData(data) {
+    verifyOutputData(data) {
         const vowels = ['a', 'e', 'i', 'o', 'u'];
         let foundVowels = [];
 
