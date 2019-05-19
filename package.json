@@ -1,5 +1,5 @@
 {
-  "name": "devowelizer",
+  "name": "devowelizer api testing",
   "version": "1.0.0",
   "devDependencies": {
     "codeceptjs": "2.1.2",
@@ -7,22 +7,17 @@
   },
   "scripts": {
     "debug": "codeceptjs run --verbose --grep @api",
-    "test": "codeceptjs run --steps --grep @api",
+    "test": "codeceptjs run --grep @api --reporter mochawesome",
     "stop-containers": "docker stop devowelizer || true && docker rm devowelizer || true",
     "docker-service": "docker run -tid --name devowelizer -p 8080:8080 -it casumo/devowelizer:latest -d || true",
-    "docker-test": "npm run stop-containers && npm run docker-service && npm run debug"
+    "docker-test": "npm run stop-containers && npm run docker-service && npm run test"
   },
   "dependencies": {
     "assert": "^1.4.1",
-    "casual": "^1.6.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "full-icu": "^1.2.1",
-    "mocha-junit-reporter": "^1.18.0",
-    "mocha-multi": "^1.0.1",
     "mocha": "^5.2.0",
-    "set-cookie-parser": "^2.3.5",
-    "sync-request": "^6.0.0",
-    "http-status-codes": "^1.3.2"
+    "http-status-codes": "^1.3.2",
+    "mochawesome": "^3.1.2"
   }
 }
