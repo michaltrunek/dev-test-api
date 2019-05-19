@@ -11,8 +11,10 @@ The scope of this repository is to test devowelizer API endpoint
 
 1. clone the repository
 2. run ``npm install`` command from the console
+3. Test it!
 
 #Runners
+
 
 ```npm run debug```
 to run all the API tests in verbose mode with extra logging into console (service has to run in a docker before)
